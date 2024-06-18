@@ -10,10 +10,10 @@ let run () =
          send
            client
            ~temperature:0.0
-           ~max_tokens:22
+           ~model:"gpt-4o"
            ~messages:
-             [ { role = `System; content = "" }
-             ; { role = `User; content = {|枕草子曰く､春は"あけぼの"､夜は"月"｡では､秋は?|} }
+             [ { role = `System; content = "You are an expert in logic, formal methods, constructive type theory, dependent type theory, Coq (Gallina, Ltac, Ltac2)" }
+             ; { role = `User; content = "Write an Inductive type denoting the abstract syntax tree of C++ statements" }
              ]
            ())
        (Lwt_io.printlf "res: %s")
